@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf1mr1lmt7gfa"]
+
+[ext_resource type="Texture2D" uid="uid://beukne1pconoh" path="res://BurningLandscape.png.png" id="1_0umow"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f7kam"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f7kam")
+frame_progress = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 650.0
+texture = ExtResource("1_0umow")

@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmyrse6itteq2"]
+[gd_scene load_steps=10 format=3 uid="uid://cmyrse6itteq2"]
 
-[ext_resource type="Texture2D" uid="uid://davuwj8lvmjkh" path="res://Sprites/label_new_game.png" id="1_48s1l"]
-[ext_resource type="Texture2D" uid="uid://bwo1oxj4ubpml" path="res://Sprites/label_continue.png" id="2_ptj33"]
-[ext_resource type="Texture2D" uid="uid://dolnq6xwfek5u" path="res://Sprites/label_options.png" id="3_eqwl0"]
-[ext_resource type="Texture2D" uid="uid://1h6n17812tio" path="res://Sprites/BladeMaster-TitleImage.png" id="4_tmms4"]
+[ext_resource type="Texture2D" uid="uid://davuwj8lvmjkh" path="res://Sprites/Main Menu/label_new_game.png" id="1_48s1l"]
+[ext_resource type="Texture2D" uid="uid://bletxx6nyxlxe" path="res://Sprites/Main Menu/Main-Background.png.png" id="1_tjqwp"]
+[ext_resource type="Script" path="res://Start.gd" id="3_5yk7e"]
+[ext_resource type="Texture2D" uid="uid://dolnq6xwfek5u" path="res://Sprites/Main Menu/label_options.png" id="3_eqwl0"]
+[ext_resource type="Texture2D" uid="uid://b20r6y316jgm4" path="res://Sprites/Main Menu/Blade Master Logo.png.png" id="5_h50bf"]
+[ext_resource type="Texture2D" uid="uid://do6e1xhvds2n0" path="res://Sprites/Cards/FlameCard.png.png" id="6_dixnr"]
+[ext_resource type="Texture2D" uid="uid://qa74myg0wj6o" path="res://Sprites/Cards/EarthCard.png.png" id="7_kadod"]
+[ext_resource type="Texture2D" uid="uid://4aluep0224vf" path="res://Sprites/Cards/Windcard.png.png" id="8_w6flx"]
+[ext_resource type="Texture2D" uid="uid://b3sww4rdry4us" path="res://Sprites/Cards/WaterCard.png.png" id="9_xm5ss"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -17,6 +22,19 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tjqwp")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -25,7 +43,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -578.0
-offset_top = 175.0
+offset_top = 223.0
 offset_right = 19.0
 offset_bottom = 325.0
 grow_horizontal = 2
@@ -35,10 +53,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 0
 icon = ExtResource("1_48s1l")
-
-[node name="Start2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-icon = ExtResource("2_ptj33")
+script = ExtResource("3_5yk7e")
 
 [node name="Start3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -46,11 +61,47 @@ icon = ExtResource("3_eqwl0")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
-offset_left = 158.0
-offset_top = 44.0
-offset_right = 1010.0
-offset_bottom = 331.0
+offset_left = 318.0
+offset_top = 88.0
+offset_right = 811.0
+offset_bottom = 252.0
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
-texture = ExtResource("4_tmms4")
+texture = ExtResource("5_h50bf")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 216.0
+offset_right = 303.0
+offset_bottom = 482.0
+texture = ExtResource("6_dixnr")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 261.0
+offset_right = 553.0
+offset_bottom = 488.0
+texture = ExtResource("7_kadod")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 621.0
+offset_top = 278.0
+offset_right = 845.0
+offset_bottom = 525.0
+texture = ExtResource("8_w6flx")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 866.0
+offset_top = 210.0
+offset_right = 1090.0
+offset_bottom = 481.0
+texture = ExtResource("9_xm5ss")
+stretch_mode = 2
