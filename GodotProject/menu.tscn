@@ -1,14 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmyrse6itteq2"]
+[gd_scene load_steps=11 format=3 uid="uid://cmyrse6itteq2"]
 
 [ext_resource type="Texture2D" uid="uid://davuwj8lvmjkh" path="res://Sprites/Main Menu/label_new_game.png" id="1_48s1l"]
-[ext_resource type="Texture2D" uid="uid://bletxx6nyxlxe" path="res://Sprites/Main Menu/Main-Background.png.png" id="1_tjqwp"]
-[ext_resource type="Script" path="res://Start.gd" id="3_5yk7e"]
-[ext_resource type="Texture2D" uid="uid://dolnq6xwfek5u" path="res://Sprites/Main Menu/label_options.png" id="3_eqwl0"]
-[ext_resource type="Texture2D" uid="uid://b20r6y316jgm4" path="res://Sprites/Main Menu/Blade Master Logo.png.png" id="5_h50bf"]
+[ext_resource type="Script" path="res://menu.gd" id="1_ritf5"]
+[ext_resource type="Texture2D" uid="uid://cenkb2mbrflyu" path="res://MainMenuBackground.png.png" id="2_hhwpk"]
 [ext_resource type="Texture2D" uid="uid://do6e1xhvds2n0" path="res://Sprites/Cards/FlameCard.png.png" id="6_dixnr"]
 [ext_resource type="Texture2D" uid="uid://qa74myg0wj6o" path="res://Sprites/Cards/EarthCard.png.png" id="7_kadod"]
+[ext_resource type="Texture2D" uid="uid://dja405uv6bux0" path="res://ElementalKatana.PNG.png" id="8_orbjb"]
 [ext_resource type="Texture2D" uid="uid://4aluep0224vf" path="res://Sprites/Cards/Windcard.png.png" id="8_w6flx"]
 [ext_resource type="Texture2D" uid="uid://b3sww4rdry4us" path="res://Sprites/Cards/WaterCard.png.png" id="9_xm5ss"]
+
+[sub_resource type="SystemFont" id="SystemFont_og0qb"]
+font_names = PackedStringArray("Candara")
+font_italic = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_a2wpa"]
+font = SubResource("SystemFont_og0qb")
+font_size = 72
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -21,6 +30,7 @@ offset_right = 2.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ritf5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -33,7 +43,7 @@ offset_right = 4.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_tjqwp")
+texture = ExtResource("2_hhwpk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -43,7 +53,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -578.0
-offset_top = 223.0
+offset_top = 281.0
 offset_right = 19.0
 offset_bottom = 325.0
 grow_horizontal = 2
@@ -53,55 +63,63 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 0
 icon = ExtResource("1_48s1l")
-script = ExtResource("3_5yk7e")
 
-[node name="Start3" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-icon = ExtResource("3_eqwl0")
+[node name="TextureRect6" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 408.0
+offset_right = 1186.0
+offset_bottom = 429.0
+texture = ExtResource("8_orbjb")
+expand_mode = 1
+stretch_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
-offset_left = 318.0
-offset_top = 88.0
+offset_left = 341.0
+offset_top = 28.0
 offset_right = 811.0
-offset_bottom = 252.0
+offset_bottom = 157.0
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+[node name="Label" type="Label" parent="CenterContainer"]
 layout_mode = 2
-texture = ExtResource("5_h50bf")
+text = "Blade Master"
+label_settings = SubResource("LabelSettings_a2wpa")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 216.0
-offset_right = 303.0
-offset_bottom = 482.0
+offset_left = 24.0
+offset_top = 183.0
+offset_right = 248.0
+offset_bottom = 440.0
 texture = ExtResource("6_dixnr")
 stretch_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 329.0
-offset_top = 261.0
-offset_right = 553.0
-offset_bottom = 488.0
+offset_left = 319.0
+offset_top = 185.0
+offset_right = 543.0
+offset_bottom = 429.0
 texture = ExtResource("7_kadod")
 stretch_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 621.0
-offset_top = 278.0
+offset_left = 614.0
+offset_top = 189.0
 offset_right = 845.0
-offset_bottom = 525.0
+offset_bottom = 437.0
 texture = ExtResource("8_w6flx")
 stretch_mode = 2
 
 [node name="TextureRect5" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 866.0
-offset_top = 210.0
-offset_right = 1090.0
+offset_left = 912.0
+offset_top = 190.0
+offset_right = 1142.0
 offset_bottom = 481.0
 texture = ExtResource("9_xm5ss")
 stretch_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
