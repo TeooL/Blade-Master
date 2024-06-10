@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://lm8qc0iqxat3"]
+
+[ext_resource type="Script" path="res://fire_slime.gd" id="1_l7lup"]
+[ext_resource type="Texture2D" uid="uid://cqk57h26v3g73" path="res://Sprites/Main Menu/fire_slime.png" id="2_rud6a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1afkl"]
+size = Vector2(63, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4onh"]
+size = Vector2(35, 35)
+
+[node name="fire_slime" type="CharacterBody2D"]
+script = ExtResource("1_l7lup")
+
+[node name="fire_slime" type="Area2D" parent="."]
+
+[node name="fire_slime" type="CollisionShape2D" parent="fire_slime"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_1afkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_m4onh")
+
+[node name="fire_slime_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_rud6a")
+
+[node name="SwitchTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="area_entered" from="fire_slime" to="." method="_on_fire_slime_area_entered"]
+[connection signal="timeout" from="SwitchTimer" to="." method="_on_switch_timer_timeout"]
